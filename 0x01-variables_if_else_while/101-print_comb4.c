@@ -13,9 +13,9 @@ int main(void)
 	for (a = 48; a <= 57; a++)
 	{
 		b++;
+		d++;
 		for (c = b; c <= 57; c++)
 		{
-			d++;
 			for (e = d; e <= 57; e++)
 			{
 				putchar(a);

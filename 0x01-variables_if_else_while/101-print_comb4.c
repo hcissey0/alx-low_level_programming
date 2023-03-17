@@ -10,7 +10,7 @@ int main(void)
 {
 	int a, b, c, e = '1', g = '0';
 
-	for (a = '0'; a <= '9; a++)
+	for (a = '0'; a <= '9'; a++)
 	{
 		e = ++g;
 		for (b = g; b <= '9'; b++)

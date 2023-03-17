@@ -16,12 +16,10 @@ int main(void)
 		{
 			putchar(a);
 			putchar(b);
+			putchar(',');
+			putchar(' ');
 		}
-		putchar(',');
-		putchar(' ');
 	}
 
 	return (0);
 }
-
-

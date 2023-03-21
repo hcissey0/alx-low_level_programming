@@ -15,7 +15,7 @@ int main(void)
 		a = b;
 		b = c;
 		c = a + b;
-		if (i != 50)
+		if (i != 49)
 			printf(", ");
 		i++;
 	} while (i < 50);

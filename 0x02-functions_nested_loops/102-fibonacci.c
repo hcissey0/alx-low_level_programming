@@ -18,7 +18,7 @@ int main(void)
 		if (i != 50)
 			printf(", ");
 		i++;
-	} while (i <= 50);
+	} while (i < 50);
 	printf("\n");
 	return (0);
 }

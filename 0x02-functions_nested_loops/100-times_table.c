@@ -8,10 +8,10 @@
  */
 void print_times_table(int n)
 {
-	if (n >= 0 && n < 16)
-		return;
 	int a, b, c;
 
+	if (n >= 0 && n < 16)
+		return;
 	for (a = 0; a <= n; a++)
 	{
 		for (b = 0; b <= n; b++)

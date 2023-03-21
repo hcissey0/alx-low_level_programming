@@ -47,4 +47,12 @@ int _isalpha(int c);
  */
 int print_sign(int n);
 
+/**
+ * _abs - prints absolute value
+ * @int: number to be checked
+ *
+ * Return: returns the absolute value of n
+ */
+int _abs(int);
+
 #endif /* _UNISTD_H_ */

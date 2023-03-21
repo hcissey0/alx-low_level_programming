@@ -7,11 +7,11 @@
  */
 int main(void)
 {
-	int a = 1, b = 2, c, i = 0;
+	long long int a = 1, b = 2, c, i = 0;
 
 	c = a + b;
 	do {
-		printf("%d", a);
+		printf("%lld", a);
 		a = b;
 		b = c;
 		c = a + b;
@@ -19,5 +19,6 @@ int main(void)
 			printf(", ");
 		i++;
 	} while (i <= 50);
+	printf("\n");
 	return (0);
 }

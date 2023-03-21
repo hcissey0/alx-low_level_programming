@@ -7,11 +7,11 @@
  */
 int main(void)
 {
-	double a = 1, b = 2, c, i = 0;
+	long double a = 1, b = 2, c, i = 0;
 
 	c = a + b;
 	do {
-		printf("%.f", a);
+		printf("%.Lf", a);
 		a = b;
 		b = c;
 		c = a + b;

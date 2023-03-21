@@ -16,4 +16,11 @@ int _putchar(char c);
  */
 void print_alphabet(void);
 
+/**
+ * print_alphabet_x10 - print alphabts 10 times
+ *
+ * Return: nothing
+ */
+void print_alphabet_x10(void);
+
 #endif /* _UNISTD_H_ */

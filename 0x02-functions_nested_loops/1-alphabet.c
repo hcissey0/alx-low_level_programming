@@ -1,11 +1,11 @@
-#include <unistd.h>
+#include "main.h"
 
 /**
  * print_alphabet - runs the code
  *
  * Return: nothing
  */
-print_alphabet(void)
+void print_alphabet(void)
 {
 	char a = 'a';
 
@@ -14,4 +14,5 @@ print_alphabet(void)
 		_putchar(a);
 	}
 	_putchar('\n');
+
 }

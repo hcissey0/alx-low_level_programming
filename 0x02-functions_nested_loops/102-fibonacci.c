@@ -7,11 +7,11 @@
  */
 int main(void)
 {
-	unsigned int a = 1, b = 2, c, i = 0;
+	unsigned long int a = 1, b = 2, c, i = 0;
 
 	c = a + b;
 	do {
-		printf("%u", a);
+		printf("%lu", a);
 		a = b;
 		b = c;
 		c = a + b;

@@ -70,4 +70,11 @@ int print_last_digit(int);
  */
 void jack_bauer(void);
 
+/**
+ * times_table - prints the times table under 9
+ *
+ * Return: void
+ */
+void times_table(void);
+
 #endif /* _UNISTD_H_ */

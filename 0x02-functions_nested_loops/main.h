@@ -63,4 +63,11 @@ int _abs(int);
  */
 int print_last_digit(int);
 
+/**
+ * jack_bauer - prints the clock numbers
+ *
+ * Return: void
+ */
+void jack_bauer(void);
+
 #endif /* _UNISTD_H_ */

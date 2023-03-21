@@ -77,4 +77,13 @@ void jack_bauer(void);
  */
 void times_table(void);
 
+/**
+ * add - adds two integers
+ * @int: first number
+ * @int: second number
+ *
+ * Return: the sum of the two integers
+ */
+int add(int, int);
+
 #endif /* _UNISTD_H_ */

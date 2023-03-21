@@ -39,4 +39,12 @@ int _islower(int c);
  */
 int _isalpha(int c);
 
+/**
+ * print_sign - checks the sign of a number
+ * @n: the number to be checked
+ *
+ * Return: 1 if positive, -1 if negative, 0 otherwise
+ */
+int print_sign(int n);
+
 #endif /* _UNISTD_H_ */

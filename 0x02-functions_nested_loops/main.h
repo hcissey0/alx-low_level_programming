@@ -86,4 +86,12 @@ void times_table(void);
  */
 int add(int, int);
 
+/**
+ * print_to_98 - prints natural numbers from nto 98
+ * @n: the number to print from
+ *
+ * Return: void
+ */
+void print_to_98(int n);
+
 #endif /* _UNISTD_H_ */

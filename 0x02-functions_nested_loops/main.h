@@ -9,4 +9,11 @@
  */
 int _putchar(char c);
 
+/**
+ * print_alphabet - prints the lowercase alphabet
+ *
+ * Return: void
+ */
+void print_alphabet(void);
+
 #endif /* _UNISTD_H_ */

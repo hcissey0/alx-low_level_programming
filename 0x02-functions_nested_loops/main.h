@@ -94,4 +94,12 @@ int add(int, int);
  */
 void print_to_98(int n);
 
+/**
+ * print_times_table - prints the times table up to n
+ * @n: the upto number
+ *
+ * Return: void
+ */
+void print_times_table(int n);
+
 #endif /* _UNISTD_H_ */

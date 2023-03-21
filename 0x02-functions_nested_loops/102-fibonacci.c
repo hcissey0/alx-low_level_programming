@@ -9,6 +9,7 @@ int main(void)
 {
 	int a = 1, b = 2, c, i = 0;
 
+	c = a + b;
 	do {
 		printf("%d", a);
 		a = b;

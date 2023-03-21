@@ -55,4 +55,12 @@ int print_sign(int n);
  */
 int _abs(int);
 
+/**
+ * print_last_digit - prints the last digit of a number
+ * @int: to be checked
+ *
+ * Return: retuens the last digit
+ */
+int print_last_digit(int);
+
 #endif /* _UNISTD_H_ */

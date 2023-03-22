@@ -16,7 +16,7 @@ int main(void)
 		b = c;
 		c = a + b;
 		if (i == 95)
-			c++;
+			a++;
 		if (i != 97)
 			printf(", ");
 		i++;

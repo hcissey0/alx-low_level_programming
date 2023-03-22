@@ -15,7 +15,7 @@ int main(void)
 		a = b;
 		b = c;
 		c = a + b;
-		if ((i == 95)
+		if (i == 95)
 			c++;
 		if (i != 97)
 			printf(", ");

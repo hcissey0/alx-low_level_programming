@@ -11,12 +11,12 @@ int main(void)
 
 	c = a + b;
 	do {
+		if (i == 95)
+			a++;
 		printf("%.Lf", a);
 		a = b;
 		b = c;
 		c = a + b;
-		if (i == 95)
-			a++;
 		if (i != 97)
 			printf(", ");
 		i++;

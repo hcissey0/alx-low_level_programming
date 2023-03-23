@@ -1,4 +1,4 @@
-#include "main"
+#include "main.h"
 
 /**
  * largest_number - returns the largest of the 3 numbers

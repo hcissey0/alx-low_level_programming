@@ -7,7 +7,7 @@
 int main(void)
 {
 	int i, max;
-	unsigned long long n = 612852475143;
+	unsigned long n = 612852475143;
 
 	while (n % 2 == 0)
 	{

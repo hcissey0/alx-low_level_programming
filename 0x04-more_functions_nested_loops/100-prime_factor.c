@@ -12,7 +12,7 @@ int main(void)
 	while (n % 2 == 0)
 	{
 		max = 2;
-		n /= 2;
+		n = n / 2;
 	}
 
 	for (i = 3; i <= n; i++)
@@ -20,7 +20,7 @@ int main(void)
 		while (n % i == 0)
 		{
 			max = i;
-			n /= i;
+			n = n / i;
 		}
 	}
 

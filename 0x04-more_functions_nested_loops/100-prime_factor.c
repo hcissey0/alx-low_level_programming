@@ -7,25 +7,18 @@
  */
 int main(void)
 {
-	int i, max;
+	int i;
 	unsigned long n = 612852475143;
 
-	while (n % 2 == 0)
+	for (i = 3; i < 782849; i += 2)
 	{
-		max = 2;
-		n = n / 2;
-	}
-
-	for (i = 3; i <= sqrt(n); i += 2)
-	{
-		while (n % i == 0)
+		while (n % i == 0 && n != i)
 		{
-			max = i;
 			n = n / i;
 		}
 	}
 
-	printf("%d\n", max);
+	printf("%lu\n", n);
 
 	return (0);
 }

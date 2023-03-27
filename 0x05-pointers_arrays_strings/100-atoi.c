@@ -7,7 +7,8 @@
  */
 int _atoi(char *s)
 {
-	int i, ans = 0, neg = 0;
+	int i, neg = 0, res;
+	unsigned ans = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -25,6 +26,6 @@ int _atoi(char *s)
 	}
 
 	if (neg % 2 != 0)
-		ans *= -1;
+		res = ans * -1;
 	return (ans);
 }

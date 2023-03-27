@@ -24,7 +24,7 @@ int _atoi(char *s)
 		}
 	}
 
-	if (neg)
+	if (neg % 2 != 0)
 		ans *= -1;
 	return (ans);
 }

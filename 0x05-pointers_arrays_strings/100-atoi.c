@@ -14,13 +14,13 @@ int _atoi(char *s)
 		if (s[i] <= 57 && s[i] >= 48)
 		{
 			ans = ans * 10 + (s[i] - 48);
-			if (s[i - 1] == '-')
-				neg++;
 		}
 		else
 		{
 			if (s[i - 1] <= 57 && s[i - 1] >= 48)
 				break;
+			if (s[i] == '-')
+				neg++;
 		}
 	}
 

@@ -6,10 +6,10 @@
  */
 void rev_string(char *s)
 {
-	int n = 0, i, j;
+	int n = 0, i = 0, j;
 	char t;
 
-	while (s[i] != '\0')
+	while (s[n] != '\0')
 		n++;
 	j = n - 1;
 	for (i = 0; i < j && j >= 0; j--, i++)

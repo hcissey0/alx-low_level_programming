@@ -12,7 +12,7 @@ int main(void)
 	int i = 0, sum = 0, h1, h2;
 
 	srand(time(0));
-	while (i < 2772)
+	while (sum < 2772)
 	{
 		pass[i] = rand() % 94 + 33;
 		sum += pass[i++];

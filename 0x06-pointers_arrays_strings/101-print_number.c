@@ -6,12 +6,16 @@
  */
 void print_number(int n)
 {
-	unsigned int i = n;
+	unsigned int i;
 
 	if (n < 0)
 	{
 		_putchar(45);
-		i = -i;
+		i = -n;
+	}
+	else
+	{
+		i = n;
 	}
 
 	if (i / 10 != 0)

@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_buffer - prints buffer
@@ -17,7 +18,7 @@ void print_buffer(char *b, int size)
 
 	for (i = 0; i < size; i += 10)
 	{
-		printf("%08x: ");
+		printf("%08x: ", i);
 		for (j = 0; j < 10; j++)
 		{
 			if (i + j >= size)

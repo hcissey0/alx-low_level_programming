@@ -36,7 +36,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 		int sum = d1 + d2 + carry;
 
-		if (k > size_r - 1)
+		if (k >= size_r - 1)
 			return (0);
 		r[k] = (sum % 10) + '0';
 		carry = sum / 10;

@@ -11,8 +11,10 @@ char *cap_string(char *s)
 
 	while (s[j] != '\0')
 		j++;
-	if (j < 1)
+	if (j <= 1)
 		return (s);
+	if (s[i] >= 97 && s[i] <= 122)
+		s[i] -= 32;
 
 	while (s[i] != '\0')
 	{

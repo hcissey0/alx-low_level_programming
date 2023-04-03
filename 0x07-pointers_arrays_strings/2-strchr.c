@@ -4,6 +4,7 @@
  * _strchr - locates a character in a string
  * @s: the string
  * @c: the character
+ * Return: character pointer
  */
 char *_strchr(char *s, char c)
 {
@@ -13,13 +14,9 @@ char *_strchr(char *s, char c)
 	{
 		if (s[i] == c)
 		{
-			f++;
-			break;
+			return (s + i);
 		}
 		i++;
 	}
-	if (f)
-		return (s + i);
-	else
-		return (NULL);
+	return (NULL);
 }

@@ -12,7 +12,6 @@ char *_strchr(char *s, char c)
 
 	while (s[n] != '\0')
 		n++;
-	
 
 	while (i <= n)
 	{

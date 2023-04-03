@@ -14,7 +14,7 @@ void print_diagsums(int *a, int size)
 		for (j = 0; j < size; j++)
 		{
 			if (i == j)
-				diag1 += a[i][j];
+				diag1 += *(&a[i] + j);
 		}
 	}
 
@@ -23,7 +23,7 @@ void print_diagsums(int *a, int size)
 		for (j = size - 1; j >= 0; j--)
 		{
 			if ((i + j + 1) == size)
-				diag2 += a[i][j];
+				diag2 += *(&a[i] + j);
 		}
 	}
 	printf("%d, %d\n", diag1, diag2);

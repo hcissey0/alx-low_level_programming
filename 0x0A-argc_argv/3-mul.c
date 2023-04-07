@@ -6,9 +6,38 @@
  */
 void print(int n)
 {
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
 	if (n / 10 != 0)
 		print(n / 10);
 	_putchar('0' + n % 10);
+}
+
+/**
+ * toInt - converts char to int
+ * @s: string to convert
+ * Return: integer value of the string
+ */
+int toInt(char *s)
+{
+	int i = 0, neg = 0, res = 0;
+
+	if (s[i] == '-')
+	{
+		neg++;
+		i++;
+	}
+	while (s[i] != '\0')
+	{
+		res = res * 10 + (s[i] - '0');
+		i++;
+	}
+	if (neg)
+		res *= -1;
+	return (res);
 }
 
 /**
@@ -33,7 +62,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		int i = *argv[1], j = *argv[2];
+		int i = toInt(argv[1]), j = toInt(argv[2]);
 		int res = i * j;
 
 		print(res);

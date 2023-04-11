@@ -1,4 +1,4 @@
-#include "main.h"
+#include "main.h"i
 
 /**
  * alloc_grid - creates a grid of 0's
@@ -15,17 +15,17 @@ int **alloc_grid(int width, int height)
 	if (width < 1 || height < 1)
 		return (NULL);
 	s = malloc(sizeof(int *) * (height));
-	if (!s)
+	if (s == NULL)
 	{
 		free(s);
 		return (NULL);
 	}
-	for (; i < height; i++)
+	for (i = 0; i < height; i++)
 	{
 		s[i] = malloc(sizeof(int) * width);
-		if (!s[i])
+		if (s[i] == NULL)
 		{
-			for (; j < i; j++)
+			for (j = 0; j < i; j++)
 				free(s[j]);
 			free(s);
 			return (NULL);

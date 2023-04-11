@@ -1,4 +1,4 @@
-#include "main.h"i
+#include "main.h"
 
 /**
  * alloc_grid - creates a grid of 0's

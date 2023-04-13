@@ -31,6 +31,8 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0')
 		return (NULL);
 	w = words(str);
+	if (w < 1)
+		return (NULL);
 	s = malloc(sizeof(char *) * (w + 1));
 	if (s == NULL)
 	{

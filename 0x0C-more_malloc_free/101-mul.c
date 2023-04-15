@@ -39,6 +39,8 @@ void error(void)
 
 /**
  * mul - multiplies the numbers
+ * @n1: first number
+ * @n2: second number
  */
 void mul(char *n1, char *n2)
 {
@@ -59,6 +61,7 @@ void mul(char *n1, char *n2)
 			int p1 = i + j;
 			int p2 = i + j + 1;
 			int sum = pd + s[p2];
+
 			s[p1] += sum / 10;
 			s[p2] = sum % 10;
 		}

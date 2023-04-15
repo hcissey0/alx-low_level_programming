@@ -1,5 +1,7 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include "main.h"
 
 /**
  * _calloc - imitates calloc
@@ -17,15 +19,14 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	s = malloc(nmemb * size);
 	if (s == NULL)
 		return (NULL);
-
 	memset(s, 0, nmemb * size);
 	return (s);
 }
 
 /**
- * err - pronts error
+ * error - prints error
  */
-void err(void)
+void error(void)
 {
 	_putchar('E');
 	_putchar('r');
@@ -33,23 +34,44 @@ void err(void)
 	_putchar('o');
 	_putchar('r');
 	_putchar('\n');
+	exit(98);
 }
 
 /**
- * dig - check if all are digit
- * @s: the string
- *
- * Return: 1 on success 0 otherwise
+ * mul - multiplies the numbers
  */
-int dig(char *s)
+void mul(char *n1, char *n2)
 {
-	while (*s)
+	int i, j, l1, l2, *s;
+
+	l1 = strlen(n1);
+	l2 = strlen(n2);
+	s = _calloc(l1 + l2, sizeof(int));
+	if (s == NULL)
+		error();
+	for (i = l1 - 1; i >= 0; i--)
 	{
-		if (*s < '0' || *s > '9')
-			return (0);
-		s++;
+		for (j = l2 - 1; j >= 0; j--)
+		{
+			int d1 = n1[i] - '0';
+			int d2 = n2[j] - '0';
+			int pd = d1 * d2;
+			int p1 = i + j;
+			int p2 = i + j + 1;
+			int sum = pd + s[p2];
+			s[p1] += sum / 10;
+			s[p2] = sum % 10;
+		}
 	}
-	return (1);
+	i = 0;
+	while (i < l1 + l2 && s[i] == 0)
+		i++;
+	if (i == l1 + l2)
+		_putchar('0');
+	for (; i < l1 + l2; i++)
+		_putchar(s[i] + '0');
+	_putchar('\n');
+	free(s);
 }
 
 /**
@@ -57,51 +79,24 @@ int dig(char *s)
  * @argc: cli argument count
  * @argv: cli arguments
  *
- * Return: Always 0
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
-	int i, j, c, b, len1, len2, *s;
+	int i, j;
 
 	if (argc != 3)
+		error();
+	for (i = 1; i <= 2; i++)
 	{
-		err();
-		return (98);
-	}
-	if (!dig(argv[1]) || !dig(argv[2]))
-	{
-		err();
-		return (98);
-	}
-	i = 0;
-	j = 0;
-	len1 = strlen(argv[1]);
-	len2 = strlen(argv[2]);
-	s = _calloc(len1 + len2, sizeof(int));
-	if (s == NULL)
-	{
-		err();
-		return (98);
-	}
-	for (i = len1 - 1; i >= 0; i--)
-	{
-		c = 0;
-		for (j = len2 - 1; j >= 0; j--)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			int d1 = argv[1][i] - '0';
-			int d2 = argv[2][j] - '0';
-			int ans = d1 * d2 + c + s[i + j + 1];
-			c = ans / 10;
-			s[i + j + 1] = ans;
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+				error();
 		}
-		s[i + j +1] += c;
 	}
-	b = 0;
-	while (b < len1 + len2 - 1 && s[b] == 0)
-		b++;
-	for (i = b; i < len1 + len2; i++)
-		_putchar(s[i] + '0');
-	_putchar('\n');
-	free(s);
+
+	mul(argv[1], argv[2]);
+
 	return (0);
 }

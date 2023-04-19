@@ -1,15 +1,15 @@
 #include "function_pointers.h"
 
 /**
- * array-iterator - iterates through a given array with a given func
+ * array_iterator - iterates through a given array with a given func
  * @array: the array
  * @size: size of the array
  * @action: the function to use
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	int i, s = (int) size;
+	int i = 0;
 
-	for (i = 0; i < s; i++)
-		action(array[i]);
+	while (i < (int) size)
+		(*action)(array[i++]);
 }

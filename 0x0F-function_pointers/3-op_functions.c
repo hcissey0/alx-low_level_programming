@@ -49,7 +49,8 @@ int op_div(int a, int b)
 	return (a / b);
 }
 
-/** op_mod - find the modulo of two integers
+/**
+ * op_mod - find the modulo of two integers
  * @a: the first integer
  * @b: the second integer
  * Return: the modulo of the two integers

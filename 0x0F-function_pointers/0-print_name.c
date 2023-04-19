@@ -7,9 +7,5 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	char *s = name;
-
-	if (name == NULL)
-		s = "";
-	(*f)(s);
+	(*f)(name);
 }

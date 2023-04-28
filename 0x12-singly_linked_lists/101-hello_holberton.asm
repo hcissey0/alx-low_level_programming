@@ -9,8 +9,9 @@ section .text
 main:
 	push rbp
 	mov rbp, rsp
-	mov rdi, msg
-	xor eax, eax
+
+	lea rdi, [msg]
+	mov eax, 0
 	call printf
 
 	mov rsp, rbp

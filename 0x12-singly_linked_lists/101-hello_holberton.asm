@@ -10,7 +10,7 @@ main:
 	push rbp
 	mov rbp, rsp
 
-	mov rsi, msg
+	mov rdi, msg
 	xor eax, eax
 	call printf
 

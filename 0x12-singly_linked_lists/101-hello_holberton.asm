@@ -3,9 +3,9 @@ section .data
 	msg db 'Hello, Holberton', 0x0A
 
 section .text
-	global _start
+	global main
 
-_start:
+main:
 	; write(1, msg, 16)
 	mov rax, 1
 	mov rdi, 1

@@ -1,16 +1,21 @@
-; 101-hello_holberton.asm
 section .data
-	msg db 'Hello, Holberton', 0x0A, 0
+	msg db 'Hello, Holberton', 0x0A
+	fmt db '%s', 0x0A
 
 section .text
 	global main
 
+	extern printf
+
 main:
-	; printf(msg)
-	mov rdi, msg
-	xor rax, rax
+	push rbp
+	mov rbp, rsp
+
+	mov rdi, fmt
+	mov rsi, msg
+	xor eax, eax
 	call printf
 
-	; return 0
-	xor rax, rax
+	mov rsp, rbp
+	pop rbp
 	ret

@@ -1,27 +1,19 @@
-	.text
-	.def	__main;	.scl	2;	.type	32;	.endef
-	.section .rdata,"dr"
-.LC0:
-	.ascii "Hello, Holberton\0"
-	.text
-	.globl	main
-	.def	main;	.scl	2;	.type	32;	.endef
-	.seh_proc	main
-main:
-	pushq	%rbp
-	.seh_pushreg	%rbp
-	movq	%rsp, %rbp
-	.seh_setframe	%rbp, 0
-	subq	$32, %rsp
-	.seh_stackalloc	32
-	.seh_endprologue
-	call	__main
-	leaq	.LC0(%rip), %rcx
-	call	puts
-	movl	$0, %eax
-	addq	$32, %rsp
-	popq	%rbp
-	ret
-	.seh_endproc
-	.ident	"GCC: (tdm64-1) 9.2.0"
-	.def	puts;	.scl	2;	.type	32;	.endef
+; 101-hello_holberton.asm
+section .data
+	msg db 'Hello, Holberton', 0x0A
+
+section .text
+	global _start
+
+_start:
+	; write(1, msg, 16)
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, msg
+	mov rdx, 16
+	syscall
+
+	; exit(0)
+	mov rax, 60
+	xor rdi, rdi
+	syscall

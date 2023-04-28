@@ -1,19 +1,16 @@
 ; 101-hello_holberton.asm
 section .data
-	msg db 'Hello, Holberton\n', 0x0A
+	msg db 'Hello, Holberton\n', 0x0A, 0
 
 section .text
 	global main
 
 main:
-	; write(1, msg, 16)
-	mov rax, 1
-	mov rdi, 1
-	mov rsi, msg
-	mov rdx, 16
-	syscall
+	; printf(msg)
+	mov rdi, msg
+	xor rax, rax
+	call printf
 
-	; exit(0)
-	mov rax, 60
-	xor rdi, rdi
-	syscall
+	; return 0
+	xor rax, rax
+	ret

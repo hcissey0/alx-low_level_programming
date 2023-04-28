@@ -1,6 +1,6 @@
 ; 101-hello_holberton.asm
 section .data
-	msg db 'Hello, Holberton\n', 0x0A, 0
+	msg db 'Hello, Holberton', 0x0A, 0
 
 section .text
 	global main

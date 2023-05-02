@@ -9,24 +9,27 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t i = 0;
-	listint_t *ptr, *temp;
+	const listint_t *temp, *loop;
 
-	ptr = (listint_t *)head;
-	while (ptr != NULL)
+	while (head)
 	{
-		if (ptr > ptr->next)
-		{
-			printf("[%p] %d\n", (void *)ptr, ptr->n);
-			temp = ptr;
-			ptr = ptr->next;
-		}
-		else
-		{
-			temp = ptr;
-			ptr = NULL;
-		}
+		printf("[%p] %d\n", (void *)head, head->n);
 		i++;
+		temp = head;
+		head = head->next;
+		/* check if there's a node pointing to a previous node */
+		if (temp <= head)
+		{
+			loop = temp;
+			while (loop != head)
+			{
+				i++;
+				loop = loop->next;
+			}
+			printf("-> [%p] %d\n", (void *)head, head->n);
+			exit(98);
+		}
 	}
-	printf("[%p] %d\n", (void *)temp, temp->n);
+
 	return (i);
 }

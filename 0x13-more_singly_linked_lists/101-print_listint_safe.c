@@ -18,7 +18,7 @@ size_t print_listint_safe(const listint_t *head)
 		temp = ptr;
 		ptr = ptr->next;
 		/* check if there's a node pointing to a previous node */
-		if (temp < ptr)
+		if (temp <= ptr)
 		{
 			printf("-> [%p] %d\n", (void *)ptr, ptr->n);
 			break;

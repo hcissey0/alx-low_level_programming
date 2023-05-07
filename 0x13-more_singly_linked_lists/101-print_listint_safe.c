@@ -21,7 +21,7 @@ size_t print_listint_safe(const listint_t *head)
 		if (temp <= ptr)
 		{
 			printf("-> [%p] %d\n", (void *)ptr, ptr->n);
-			break;
+			exit(98);
 		}
 	}
 

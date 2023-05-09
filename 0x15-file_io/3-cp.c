@@ -41,7 +41,7 @@ int main(int ac, char **av)
 	if (fd_from == -1)
 		error("Error: Can't read from file %s\n", av[1], fd_from, 98);
 	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd-to == -1)
+	if (fd_to == -1)
 		error("Error: Can't write to %s\n", av[2], fd_to, 99);
 	while ((r = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 	{

@@ -28,7 +28,7 @@ void error(char *m, char *filename, int fd, int e)
  */
 int main(int ac, char **av)
 {
-	int i = 0, fd_from, fd_to;
+	int fd_from, fd_to;
 	char buffer[BUFFER_SIZE];
 	ssize_t r, w;
 

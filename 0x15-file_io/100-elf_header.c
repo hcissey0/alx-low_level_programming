@@ -91,7 +91,7 @@ void pmagic(unsigned char *e)
  */
 void pclass(unsigned char *e)
 {
-	printf("  Class:                            ");
+	printf("  Class:                             ");
 	switch (e[EI_CLASS])
 	{
 	case ELFCLASSNONE:
@@ -115,7 +115,7 @@ void pclass(unsigned char *e)
  */
 void pdata(unsigned char *e)
 {
-	printf("  Data:                             ");
+	printf("  Data:                              ");
 	switch (e[EI_DATA])
 	{
 	case ELFDATANONE:
@@ -139,7 +139,7 @@ void pdata(unsigned char *e)
  */
 void pversion(unsigned char *e)
 {
-	printf("  Version:                          %d ", e[EI_VERSION]);
+	printf("  Version:                           %d ", e[EI_VERSION]);
 	switch (e[EI_VERSION])
 	{
 	case EV_NONE:
@@ -160,7 +160,7 @@ void pversion(unsigned char *e)
  */
 void posabi(unsigned char *e)
 {
-	printf("  OS/ABI:                           ");
+	printf("  OS/ABI:                            ");
 	switch (e[EI_OSABI])
 	{
 	case ELFOSABI_SYSV:
@@ -205,7 +205,7 @@ void posabi(unsigned char *e)
  */
 void pabiversion(unsigned char *e)
 {
-	printf("  ABI Version:                      %d\n", e[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", e[EI_ABIVERSION]);
 }
 
 /**
@@ -214,7 +214,7 @@ void pabiversion(unsigned char *e)
  */
 void ptype(uint16_t e)
 {
-	printf("  Type:                             ");
+	printf("  Type:                              ");
 	switch (e)
 	{
 	case ET_NONE:
@@ -243,5 +243,5 @@ void ptype(uint16_t e)
  */
 void pentry(uint64_t e)
 {
-	printf("  Entry point address:              %#lx\n",e);
+	printf("  Entry point address:               %#lx\n", e);
 }

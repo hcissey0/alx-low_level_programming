@@ -230,7 +230,7 @@ void ptype(uint16_t e)
 		printf("CORE (Core file)\n");
 		break;
 	default:
-		if ((e >= ET_LOPROC) && (e <= ET_HIPROC))
+		if (e >= ET_LOPROC)
 			printf("Processor Specific: (%02x)\n", e);
 		else if ((e >= ET_LOOS) && (e <= ET_HIOS))
 			printf("OS Specific: (%02x)\n", e);

@@ -38,8 +38,8 @@ int main(int ac, char **av)
 		err(fd, "Error: Cannot read from file %s\n", av[1]);
 	if (br != sizeof(header))
 		err(fd, "Error: File %s is too short\n", av[1]);
-	if (memcmp(header.e_ident, ELFMAG, (size_t)SELFMAG) != 0)
-		err(fd, "Error: Not an ELF File - magic do not match\n", NULL);
+	if (memcmp(header.e_ident, ELFMAG, SELFMAG) != 0)
+		err(fd, "Error: Not an Elf file\n", NULL);
 	printf("ELF Header:\n");
 	pmagic(header.e_ident);
 	pclass(header.e_ident);

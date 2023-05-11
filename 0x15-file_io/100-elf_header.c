@@ -128,7 +128,7 @@ void pdata(unsigned char *e)
 		printf("2's complement, big endian\n");
 		break;
 	default:
-		printf("<unknown: %02x>\n", e[EI_CLASS]);
+		printf("<unknown: %02x>\n", e[EI_DATA]);
 		break;
 	}
 }
@@ -139,17 +139,14 @@ void pdata(unsigned char *e)
  */
 void pversion(unsigned char *e)
 {
-	printf("  Version:                           %d ", e[EI_VERSION]);
+	printf("  Version:                           %d", e[EI_VERSION]);
 	switch (e[EI_VERSION])
 	{
-	case EV_NONE:
-		printf("(none)\n");
-		break;
 	case EV_CURRENT:
-		printf("(current)\n");
+		printf(" (current)\n");
 		break;
 	default:
-		printf("<unknown: %02x>\n", e[EI_VERSION]);
+		printf("\n");
 		break;
 	}
 }
@@ -188,10 +185,10 @@ void posabi(unsigned char *e)
 		printf("UNIX - TRU64\n");
 		break;
 	case ELFOSABI_ARM:
-		printf("UNIX - ARM\n");
+		printf("ARM\n");
 		break;
 	case ELFOSABI_STANDALONE:
-		printf("Stand-alone (embedded)\n");
+		printf("Standalone (embedded) application\n");
 		break;
 	default:
 		printf("<unknown: %02x>\n", e[EI_OSABI]);
@@ -218,7 +215,7 @@ void ptype(uint16_t e)
 	switch (e)
 	{
 	case ET_NONE:
-		printf("NONE (none)\n");
+		printf("NONE (None)\n");
 		break;
 	case ET_REL:
 		printf("REL (Relocatable file)\n");
@@ -233,7 +230,13 @@ void ptype(uint16_t e)
 		printf("CORE (Core file)\n");
 		break;
 	default:
-		printf("<unknown: %d>\n", e);
+		if ((e >= ET_LOPROC) && (e <= ET_HIPROC))
+			printf("Processor Specific: (%02x)\n", e);
+		else if ((e >= ET_LOOS) && (e <= ET_HIOS))
+			printf("OS Specific: (%02x)\n", e);
+		else
+			printf("<unknown: %02x>\n", e);
+		break;
 	}
 }
 

@@ -104,7 +104,7 @@ void pclass(unsigned char *e)
 		printf("ELF64\n");
 		break;
 	default:
-		printf("<unknown: %02x\n", e[EI_CLASS]);
+		printf("<unknown: %03x>\n");
 		break;
 	}
 }
@@ -128,7 +128,7 @@ void pdata(unsigned char *e)
 		printf("2's complement, big endian\n");
 		break;
 	default:
-		printf("<unknown: %02x\n", e[EI_CLASS]);
+		printf("<unknown: %02x>\n", e[EI_CLASS]);
 		break;
 	}
 }

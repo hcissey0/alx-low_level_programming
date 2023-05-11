@@ -104,7 +104,7 @@ void pclass(unsigned char *e)
 		printf("ELF64\n");
 		break;
 	default:
-		printf("<unknown: %03x>\n");
+		printf("<unknown: %02x>\n", e[EI_CLASS]);
 		break;
 	}
 }
@@ -149,7 +149,7 @@ void pversion(unsigned char *e)
 		printf("(current)\n");
 		break;
 	default:
-		printf("<unknown: %02x\n", e[EI_VERSION]);
+		printf("<unknown: %02x>\n", e[EI_VERSION]);
 		break;
 	}
 }

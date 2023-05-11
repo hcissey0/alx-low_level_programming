@@ -63,10 +63,7 @@ void err(int fd, const char *format, char *filename)
 {
 	if (fd != -1)
 		close(fd);
-	if (filename == NULL)
-		dprintf(STDERR_FILENO, format);
-	else
-		dprintf(STDERR_FILENO, format, filename);
+	dprintf(STDERR_FILENO, format, filename);
 	exit(98);
 }
 

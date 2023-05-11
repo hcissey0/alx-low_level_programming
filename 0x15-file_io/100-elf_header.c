@@ -12,8 +12,8 @@ void pdata(unsigned char *);
 void pversion(unsigned char *);
 void posabi(unsigned char *);
 void pabiversion(unsigned char *);
-void ptype(uint16_t);
-void pentry(uint64_t);
+void ptype(unsigned int, unsigned char *);
+void pentry(unsigned long int, unsigned char *);
 
 /**
  * main - Entry point
@@ -47,8 +47,8 @@ int main(int ac, char **av)
 	pversion(header.e_ident);
 	posabi(header.e_ident);
 	pabiversion(header.e_ident);
-	ptype(header.e_type);
-	pentry(header.e_entry);
+	ptype(header.e_type, header.e_ident);
+	pentry(header.e_entry, header.e_ident);
 	close(fd);
 	return (0);
 }
@@ -104,7 +104,7 @@ void pclass(unsigned char *e)
 		printf("ELF64\n");
 		break;
 	default:
-		printf("<unknown: %02x>\n", e[EI_CLASS]);
+		printf("<unknown: %x>\n", e[EI_CLASS]);
 		break;
 	}
 }
@@ -128,7 +128,7 @@ void pdata(unsigned char *e)
 		printf("2's complement, big endian\n");
 		break;
 	default:
-		printf("<unknown: %02x>\n", e[EI_DATA]);
+		printf("<unknown: %x>\n", e[EI_DATA]);
 		break;
 	}
 }
@@ -188,10 +188,10 @@ void posabi(unsigned char *e)
 		printf("ARM\n");
 		break;
 	case ELFOSABI_STANDALONE:
-		printf("Standalone (embedded) application\n");
+		printf("Standalone application\n");
 		break;
 	default:
-		printf("<unknown: %02x>\n", e[EI_OSABI]);
+		printf("<unknown: %x>\n", e[EI_OSABI]);
 		break;
 	}
 }
@@ -208,9 +208,12 @@ void pabiversion(unsigned char *e)
 /**
  * ptype - prints the object file of an elf header file
  * @e: the type member of the struct
+ * @eid: the pointer the array containing the magic numbers
  */
-void ptype(uint16_t e)
+void ptype(unsigned int e, unsigned char *eid)
 {
+	if (eid[EI_DATA] == ELFDATA2MSB)
+		e >>= 8;
 	printf("  Type:                              ");
 	switch (e)
 	{
@@ -230,12 +233,7 @@ void ptype(uint16_t e)
 		printf("CORE (Core file)\n");
 		break;
 	default:
-		if (e >= ET_LOPROC)
-			printf("Processor Specific: (%02x)\n", e);
-		else if ((e >= ET_LOOS) && (e <= ET_HIOS))
-			printf("OS Specific: (%02x)\n", e);
-		else
-			printf("<unknown: %02x>\n", e);
+		printf("<unknown: %x>\n", e);
 		break;
 	}
 }
@@ -243,8 +241,18 @@ void ptype(uint16_t e)
 /**
  * pentry - prints the entry point address of the elf header file
  * @e: the entry address
+ * @eid: the array of the magic numbers
  */
-void pentry(uint64_t e)
+void pentry(unsigned long int e, unsigned char *eid)
 {
-	printf("  Entry point address:               %#lx\n", e);
+	if (eid[EI_DATA] == ELFDATA2MSB)
+	{
+		e = ((e << 8) & 0xff00ff00) | ((e >> 8) & 0xff00ff);
+		e = (e << 16) | (e >> 16);
+	}
+	printf("  Entry point address:               ");
+	if (eid[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)e);
+	else
+		printf("%#lx\n", e);
 }

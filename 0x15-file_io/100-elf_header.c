@@ -1,4 +1,9 @@
-#include "main.h"
+#include <stdio.h>
+#include <string.h>
+#include <elf.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 void err(int fd, const char *format, char *filename);
 void pmagic(unsigned char *);

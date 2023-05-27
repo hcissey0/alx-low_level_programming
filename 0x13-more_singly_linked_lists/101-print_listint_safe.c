@@ -8,24 +8,6 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	/*
-	size_t i = 0;
-	const listint_t *ptr = head, *temp = NULL;
-
-	while (ptr != NULL)
-	{
-		printf("[%p] %d\n", (void *)ptr, ptr->n);
-		i++;
-		temp = ptr;
-		ptr = ptr->next;
-		/ * check if there's a node pointing to a previous node * /
-		if (temp <= ptr)
-		{
-			printf("-> [%p] %d\n", (void *)ptr, ptr->n);
-			break;
-		}
-	} */
-
 	size_t count = 0;
 	const listint_t *slow, *fast;
 
@@ -42,30 +24,23 @@ size_t print_listint_safe(const listint_t *head)
 			slow = head;
 			while (slow != fast)
 			{
-				printf("[%p] %d\n", (void*)slow, slow->n);
+				printf("[%p] %d\n", (void *)slow, slow->n);
 				slow = slow->next;
 				fast = fast->next;
 				count++;
 			}
 			printf("[%p] %d\n", (void *)slow, slow->n);
 			slow = slow->next;
-			while (slow != fast)
-			{
-				printf("[%p] %d\n", (void*)slow, slow->n);
-				count++;
-				slow = slow->next;
-			}
 			count++;
-			printf("-> [%p] %d\n", (void *)fast, fast->n);
-			return (count);
+			break;
 		}
 	}
-	while (head)
+	while (head != fast)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next;
 		count++;
 	}
-
+	printf("-> [%p] %d\n", (void *)fast, fast->n);
 	return (count);
 }

@@ -79,7 +79,7 @@ unsigned int f5(char *a, int n)
 
 /**
  * f6 - digit six
- * c: char
+ * @c: char
  * Return: ans
  */
 unsigned int f6(char c)
@@ -101,7 +101,8 @@ int main(int ac, char **av)
 {
 	char pass[7], *m;
 	int i = 0;
-	char s[64] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
+	char s[64] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU"
+		+ "+4mjW6fxqZeF3Qa1rPhdKIouk";
 
 	if (ac != 2)
 	{

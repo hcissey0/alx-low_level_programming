@@ -1,18 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
 #include <stdlib.h>
-
-/**
- * f1 - digit one
- * @i: argument 1
- *
- * Return: ans
- */
-unsigned int f1(int i)
-{
-	return ((i ^ 0x3b) & 0x3f);
-}
 
 /**
  * f2 - digit two
@@ -55,7 +43,7 @@ unsigned int f4(char *a, int n)
 	int m = *a, i;
 
 	for (i = 0; i < n; i++)
-		if (a[i] > 10)
+		if (a[i] > m)
 			m = a[i];
 	srand(m ^ 0xe);
 	return (rand() & 0x3f);
@@ -78,20 +66,6 @@ unsigned int f5(char *a, int n)
 }
 
 /**
- * f6 - digit six
- * @c: char
- * Return: ans
- */
-unsigned int f6(char c)
-{
-	int m = 0, i;
-
-	for (i = 0; c > i; i++)
-		m = rand();
-	return ((m ^ 0xe5) & 0x3f);
-}
-
-/**
  * main - Entry point
  * @ac: argc
  * @av: argv
@@ -99,25 +73,27 @@ unsigned int f6(char c)
  */
 int main(int ac, char **av)
 {
-	char pass[7], *m;
-	int i = 0;
+	char pass[7], *user;
+	int i = 0, len = 0, rnd = 0;
 	char s[] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
+	unsigned int (*funcs[])(char *, int) = {f2, f3, f4, f5};
 
 	if (ac != 2)
 	{
 		printf("Usage: %s username\n", av[0]);
 		return (1);
 	}
-	m = av[1];
-	i = strlen(m);
-	pass[0] = s[f1(i)];
-	pass[1] = s[f2(m, i)];
-	pass[2] = s[f3(m, i)];
-	pass[3] = s[f4(m, i)];
-	pass[4] = s[f5(m, i)];
-	pass[5] = s[f6(*m)];
+	user = av[1];
+	len = strlen(user);
+	pass[0] = s[((len ^ 0x3b) & 0x3f)];
+	for (i = 1; i < 5; i++)
+		pass[i] = s[funcs[i - 1](user, len)];
+	for (i = 0; *user > i; i++)
+		rnd = rand();
+	pass[5] = s[((rnd ^ 0xe5) & 0x3f)];
 	pass[6] = '\0';
 	printf("%s", pass);
 
+	
 	return (0);
 }

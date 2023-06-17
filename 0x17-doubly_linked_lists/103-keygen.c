@@ -76,6 +76,7 @@ int main(int ac, char **av)
 	char pass[7], *user;
 	int i = 0, len = 0, rnd = 0;
 	char s[] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
+
 	unsigned int (*funcs[])(char *, int) = {f2, f3, f4, f5};
 
 	if (ac != 2)
@@ -94,6 +95,5 @@ int main(int ac, char **av)
 	pass[6] = '\0';
 	printf("%s", pass);
 
-	
 	return (0);
 }

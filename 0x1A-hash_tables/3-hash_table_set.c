@@ -14,9 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht == NULL || key == NULL || key[0] == '\0' || value == NULL)
 		return (0);
-
 	index = key_index((const unsigned char *)key, ht->size);
-	/* checking for update */
 	tmp = ht->array[index];
 	while (tmp != NULL)
 	{
@@ -30,7 +28,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		tmp = tmp->next;
 	}
-
 	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
 		return (0);

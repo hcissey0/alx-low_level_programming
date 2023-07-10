@@ -60,7 +60,7 @@ void add_to_sorted(shash_table_t *ht, shash_node_t *node)
 			tmp->snext->sprev = node;
 		else
 			ht->stail = node;
-		node->snext = node;
+		tmp->snext = node;
 	}
 }
 

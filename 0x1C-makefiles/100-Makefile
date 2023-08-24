@@ -16,7 +16,7 @@ $(OBJ): %.o: %.c m.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) *~
+	$(RM) *~ $(NAME)
 
 oclean:
 	$(RM) $(OBJ)

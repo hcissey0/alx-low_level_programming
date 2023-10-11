@@ -5,7 +5,7 @@
  * min - finds the min of 2 numbers
  * @a: The first number
  * @b: The second number
- * Retrun: the min of the numbers
+ * Return: the min of the numbers
  */
 size_t min(size_t a, size_t b)
 {
@@ -29,7 +29,7 @@ int jump_search(int *array, size_t size, int value)
 	prev = 0;
 	jump = sqrt(size);
 
-	for (i = 0; i < size && array[i] < value; prev = i, i +=jump)
+	for (i = 0; i < size && array[i] < value; prev = i, i += jump)
 		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 
 	printf("Value found between indexes [%lu] and [%lu]\n", prev, i);
@@ -42,22 +42,3 @@ int jump_search(int *array, size_t size, int value)
 	}
 	return (-1);
 }
-/*
-	for (i = 0;; i += jump)
-	{
-		if (array[i] >= value || i >= size)
-		{
-			printf("Value found between indexes [%lu] and [%lu]\n", i - jump, i);
-			for (prev = i - jump; prev <= i && prev < size; prev++)
-			{
-				printf("Value checked array[%lu] = [%d]\n", prev, array[prev]);
-				if (array[prev] == value)
-					return (prev);
-			}
-			break;
-		}
-		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
-	}
-	return (-1);
-}
-*/
